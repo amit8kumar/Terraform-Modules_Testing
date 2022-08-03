@@ -26,7 +26,7 @@ module "vpc" {
   enable_vpn_gateway = true
 
   tags = {
-    Terraform = "true"
+    Terraform = "yes"
     Environment = "dev"
     purpose     = "modtest"
   }
