@@ -12,16 +12,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
-module "s3_bucket" {
+module "s3_bucket_for_logs" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = "amit-s3-bucket-module"
-  acl    = "private"
+  bucket = "my-s3-bucket-for-logs"
+  acl    = "log-delivery-write"
 
-  versioning = {
-    enabled = true
-  }
+  # Allow deletion of non-empty bucket
+  force_destroy = true
 
+  attach_elb_log_delivery_policy = true  # Required for ALB logs
+  attach_lb_log_delivery_policy  = true  # Required for ALB/NLB logs
 }
   
 variable "AWS_ACCESS_KEY_ID" {
