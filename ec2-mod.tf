@@ -29,16 +29,7 @@ module "ec2_instance" {
     Terraform   = "true"
     Environment = "test"
     
-      provisioner "remote-exec" {
-    inline = [
-      "sudo yum update -y",
-      "sudo yum install -y httpd",
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd",
-      "sudo systemctl restart httpd"
-     ]
    }
-  }
 }
   
 variable "AWS_ACCESS_KEY_ID" {
