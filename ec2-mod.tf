@@ -39,3 +39,12 @@ variable "AWS_SECRET_ACCESS_KEY" {
   default = "AWS_SECRET_ACCESS_KEY"
 }
   
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+      "sudo systemctl restart httpd"
+  ]
+}
