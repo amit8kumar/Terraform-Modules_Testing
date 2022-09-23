@@ -12,7 +12,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-ata "aws_ami" "example" {
+data "aws_ami" "example" {
   most_recent = true
 
   owners = ["self"]
