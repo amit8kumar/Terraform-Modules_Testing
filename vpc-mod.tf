@@ -9,6 +9,14 @@ terraform {
 }
 
 provider "aws" {
+  region = "ap-south-1"
+}
+
+# Additional provider configuration for US East; resources can
+# reference this as `aws.east`.
+
+provider "aws" {
+  alias  = "east"
   region = "us-east-1"
 }
 
